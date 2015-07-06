@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+.tscache/
+AngularMovie.iml
+node_modules/
+app/lib/
+app/ts/**/*.map
+app/ts/**/*.js

@@ -1,0 +1,34 @@
+body {
+    padding-top:60px;
+}
+
+a:hover{
+    cursor: pointer
+}
+
+/* hide spinner for inpu type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.thumbnails .caption {
+    margin-left : 220px;
+}
+
+.thumbnails  img {
+    padding-top: 20px;
+    width: 160px;
+}
+
+.control-group input,.control-group textarea  {
+    margin-left: 20px;
+}
+
+.control-group .help-block {
+    margin-left: 180px;
+}
+
+.caption > div > label {
+    display : inline-block;
+}

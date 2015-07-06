@@ -1,0 +1,24 @@
+{
+  "name": "angularmovie2",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Sfeir/angularmovie-300",
+  "authors": [
+    "Balit Cyril <cbalit@gmail.com>"
+  ],
+  "description": "Live coding & Hands On AngularJS2",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap.css": "2.1.1",
+    "angular": "1.4",
+    "jquery": "1.8.2"
+  }
+}
