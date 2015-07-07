@@ -111,7 +111,7 @@ var movies = [
 
 // GET all movies
 exports.fetchMovies = function (req, res) {
-    res.json(200, {movies : movies});
+    res.status(200).json(movies);
 };
 
 
@@ -121,7 +121,7 @@ exports.fetchMovie = function (req, res){
 
     for(var i = 0; i < movies.length; i++){
         if(movies[i].id == id){
-            res.json(200, movies[i]);
+            res.status(200).json(movies[i]);
         }
     }
 
@@ -135,14 +135,14 @@ exports.addMovie = function (req, res) {
 
     for(var idx in movies){
         if(movies[idx].title === movie.title){
-            res.json(500, { error: 'Le film ' + movie.title + ' a déjà été ajouté.' });
+            res.status(500).json({ error: 'Le film ' + movie.title + ' a déjà été ajouté.' });
             err = true;
         }
     }
 
     if(!err){
         movies.push(movie);
-        res.json(201);
+        res.status(201).json({});
     }
 
 };
@@ -157,11 +157,11 @@ exports.updateMovie = function(req, res) {
         if(movies[i].id === id){
             movies.splice(i, 1);
             movies.push(movie);
-            res.json(200);
+            res.status(200).json({});
         }
     }
 
-    res.json(304, "Not modified");
+    res.status(304).json("Not modified");
 };
 
 
@@ -174,11 +174,11 @@ exports.updateMovie = function(req, res) {
         if(movies[i].id === id){
             movies.splice(i, 1);
             movies.push(movie);
-            res.json(200);
+            res.status(200).json({});
         }
     }
 
-    res.json(304, "Not modified");
+    res.status(304).json("Not modified");
 };
 
 // DELETE
@@ -188,9 +188,9 @@ exports.deleteMovie = function (req, res) {
     for(var i = 0; i < movies.length; i++){
         if(movies[i].id == id){
             movies.splice(i, 1);
-            res.json(200);
+            res.status(200).json({});
         }
     }
 
-    res.json(304, "Not modified");
+    res.status(304).json("Not modified");
 };
