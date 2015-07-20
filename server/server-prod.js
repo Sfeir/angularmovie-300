@@ -1,6 +1,6 @@
-var app = require('./server');
-var express = require('express');
-var path = require('path');
+var app     = require('./server'),
+    express = require('express'),
+    path    = require('path');
 
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));
