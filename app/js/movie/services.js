@@ -1,30 +1,27 @@
 "use strict";
 
-angular.module('angularMovieCore').service("Movie", function ($http) {
-    var API_URI = '/server/api/movies';
+angular.module('angularMovieCore').service("Movie", function($http) {
+  var API_URI = '/server/api/movies';
 
-    return {
+  return {
+    fetch : function() {
+      return $http.get(API_URI);
+    },
 
-        fetch : function() {
-            return $http.get(API_URI);
-        },
+    create : function(movie) {
+      return $http.post(API_URI, movie);
+    },
 
-        create : function(movie) {
-            return  $http.post(API_URI, movie);
-        },
+    remove : function(id) {
+      return $http.delete(API_URI + '/' + id);
+    },
 
-        remove  : function(id) {
-            return $http.delete(API_URI + '/' + id);
-        },
+    fetchOne : function(id) {
+      return $http.get(API_URI + '/' + id);
+    },
 
-        fetchOne : function(id) {
-            return $http.get(API_URI + '/' + id);
-        },
-
-        update : function(movie) {
-             return $http.put('/server/api/movies', movie);
-        }
-
-    };
-
+    update : function(movie) {
+      return $http.put('/server/api/movies', movie);
+    }
+  };
 });

@@ -3,15 +3,12 @@
  */
 
 "use strict";
-var express = require('express')
-    , api = require('./routes/api')
-    , bodyParser = require('body-parser')
-    , methodOverride = require('method-override')
-    , path = require('path');
-
-
-
-var app = express();
+var express        = require('express'),
+    api            = require('./routes/api'),
+    bodyParser     = require('body-parser'),
+    methodOverride = require('method-override'),
+    path           = require('path'),
+    app            = express();
 
 // Configuration
 app.set('port', 9000);
