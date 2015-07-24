@@ -2,7 +2,8 @@
 
 angular.module('angularMovieCore').provider("Movie", function() {
   var _this   = this,
-      API_URI = '';
+      API_URI = '',
+      cache;
 
   _this.setURI = function(URI) {
     API_URI = URI;
@@ -18,8 +19,10 @@ angular.module('angularMovieCore').provider("Movie", function() {
     };
 
     function fetch() {
-      console.log(API_URI);
-      return $http.get(API_URI);
+      if (cache == null) {
+        cache = $http.get(API_URI);
+      }
+      return cache;
     }
 
     function create(movie) {
