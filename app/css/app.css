@@ -6,6 +6,10 @@ a:hover{
     cursor: pointer
 }
 
+[ui-sref]{
+    cursor: pointer
+}
+
 /* hide spinner for inpu type number */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

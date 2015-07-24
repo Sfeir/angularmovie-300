@@ -38,9 +38,21 @@ angular.module('angularMovieCore').controller("moviesController", function($scop
 
 });
 
-angular.module('angularMovieCore').controller('editMovieController', function($scope, Movie, $routeParams, $location) {
+angular.module('angularMovieCore').controller('movieController', function($scope, movie, $state, Movie) {
+  $scope.movie = movie.data;
 
-  var movieId = $routeParams.id;
+  $scope.deleteMovie = function(id) {
+    Movie.remove(id)
+      .success(function(resp){
+        $state.go('movies');
+      }
+    );
+  };
+});
+
+angular.module('angularMovieCore').controller('editMovieController', function($scope, Movie, $stateParams, $location) {
+
+  var movieId = $stateParams.id;
 
   Movie.fetchOne(movieId).success(function(movie) {
     $scope.movie = movie;

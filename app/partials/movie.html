@@ -1,0 +1,30 @@
+<header class="page-header">
+   <h1>{{movie.title | uppercase}}</h1>
+   <button class="btn btn-danger" ng-click="deleteMovie(movie.id)" title="Supprimer de la vidéothèque"><i class="icon-trash icon-white"></i></button>
+   <button class="btn btn-info" ui-sref="editmovie({id : movie.id})" title="Editer la fiche<"><i class="icon-edit icon-white"></i></button>
+
+   <button style="float:right;" class="btn btn-default" ui-sref="movies">Retour à la vidéothèque</button>
+</header>
+
+<section>
+   <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#infos" aria-controls="infos" role="tab" data-toggle="tab">Informations</a></li>
+      <li role="presentation"><a href="#images" aria-controls="images" role="tab" data-toggle="tab">Images</a></li>
+      <li role="presentation"><a href="#casting" aria-controls="casting" role="tab" data-toggle="tab">Casting</a></li>
+   </ul>
+
+   <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="infos">
+         <p><b>Année de sortie : </b>{{movie.releaseYear}}</p>
+         <p><b>Synopsis : </b>{{movie.synopsis}}</p>
+         <p><b>Note : </b>{{movie.rate | stars}}</p>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="images">
+         <img ng-src="{{movie.poster | poster}}" class="span2">
+      </div>
+      <div role="tabpanel" class="tab-pane" id="casting">
+         <p><b>Réalisateurs : </b>{{movie.directors}}</p>
+         <p><b>Acteurs : </b>{{movie.actors}}</p>
+      </div>
+   </div>
+</section>
