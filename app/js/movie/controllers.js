@@ -1,5 +1,29 @@
 "use strict";
 
+angular.module('angularMovieCore').controller("mainController", function($scope, $rootScope) {
+
+  $scope.loading = false;
+
+  $rootScope.$on('$stateChangeStart',
+    function (event, toState, toParams, fromState, fromParams) {
+      console.log('start');
+    $scope.loading = true;
+    });
+
+  $rootScope.$on('$stateChangeSuccess',
+    function (event, toState, toParams, fromState, fromParams) {
+      console.log('End');
+      $scope.loading = false;
+    });
+
+  $rootScope.$on('$stateChangeError',
+    function (event, toState, toParams, fromState, fromParams) {
+      console.error('StateError', event);
+      $scope.loading = false;
+    });
+
+});
+
 angular.module('angularMovieCore').controller("homeController", function($scope) {
 
   $scope.user = 'Thierry LAU';
