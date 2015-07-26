@@ -128,6 +128,55 @@ exports.fetchMovie = function (req, res){
     res.json(404, "Not found");
 };
 
+
+// GET a movie
+exports.fetchMovieImages = function (req, res){
+    var id = req.params.id;
+
+    for(var i = 0; i < movies.length; i++){
+        if(movies[i].id == id){
+            res.status(200).json({poster: movies[i].poster});
+        }
+    }
+
+    res.json(404, "Not found");
+};
+
+
+// GET a movie
+exports.fetchMovieInformations = function (req, res){
+    var id = req.params.id;
+
+    for(var i = 0; i < movies.length; i++){
+        if(movies[i].id == id){
+            res.status(200).json({
+                releaseYear: movies[i].releaseYear,
+                synopsis: movies[i].synopsis,
+                rate: movies[i].rate
+            });
+        }
+    }
+
+    res.json(404, "Not found");
+};
+
+
+// GET a movie
+exports.fetchMovieCasting = function (req, res){
+    var id = req.params.id;
+
+    for(var i = 0; i < movies.length; i++){
+        if(movies[i].id == id){
+            res.status(200).json({
+                directors: movies[i].directors,
+                actors: movies[i].actors
+            });
+        }
+    }
+
+    res.json(404, "Not found");
+};
+
 // POST
 exports.addMovie = function (req, res) {
     var movie = req.body;
