@@ -6,13 +6,11 @@ angular.module('angularMovieCore').controller("mainController", function($scope,
 
   $rootScope.$on('$stateChangeStart',
     function (event, toState, toParams, fromState, fromParams) {
-      console.log('start');
     $scope.loading = true;
     });
 
   $rootScope.$on('$stateChangeSuccess',
     function (event, toState, toParams, fromState, fromParams) {
-      console.log('End');
       $scope.loading = false;
     });
 
