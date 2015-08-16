@@ -17,7 +17,8 @@
       <div role="tabpanel" class="tab-pane active" id="infos">
          <p><b>Année de sortie : </b>{{movie.releaseYear}}</p>
          <p><b>Synopsis : </b>{{movie.synopsis}}</p>
-         <p><b>Note : </b>{{movie.rate | stars}}</p>
+         <p><b>Note : </b><rating ng-model="movie.rate" readonly="true" max="5"><i class="fa fa-star"></i></rating></p>
+
       </div>
       <div role="tabpanel" class="tab-pane" id="images">
          <img ng-src="{{movie.poster | poster}}" class="span2">

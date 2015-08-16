@@ -51,3 +51,29 @@ input::-webkit-inner-spin-button {
 .modal-loading > i {
     margin: auto;
 }
+
+.rating {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+.rating .star {
+    padding: 1px;
+    color: #ddd;
+    font-size: 20px;
+    text-shadow: .05em .05em #aaa;
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer;
+}
+.rating .star.filled {
+    color: #fd0;
+}
+.rating.readonly .star.filled {
+    color: #666;
+}
+.control-group .rating {
+    margin-left: 20px;
+    line-height: 20px;
+    padding-top: 5px;
+}
