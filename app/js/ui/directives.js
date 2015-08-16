@@ -78,7 +78,7 @@ angular.module('angularMovieUI').directive('rating', function() {
         }
       };
       scope.$watch('ratingValue', function(newValue) {
-        if (newValue) {
+        if (newValue || scope.stars == undefined) {
           updateValue();
         }
       });
