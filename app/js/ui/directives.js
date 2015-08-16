@@ -47,14 +47,15 @@ angular.module('angularMovieUI').directive('rating', function() {
   return {
     restrict   : 'E',
     transclude : true,
-    template   : '<ul class="rating readonly">' +
-    '  <li ng-repeat="star in stars" class="star" ng-class="{filled: star.filled}">' +
+    template   : '<ul class="rating" ng-class="{readonly: readonly}">' +
+    '  <li ng-repeat="star in stars" class="star" ng-class="{filled: star.filled}" ng-click="rate($index)">' +
     '    <ng-transclude></ng-transclude>' +
     '  </li>' +
     '</ul>',
     scope      : {
       ratingValue : '=ngModel',
-      max         : '=?'
+      max         : '=?',
+      readonly    : '=?'
     },
     link       : function(scope, element, attributes) {
       if (scope.max == undefined) {
@@ -68,6 +69,11 @@ angular.module('angularMovieUI').directive('rating', function() {
           });
         }
       }
+      scope.rate = function(index) {
+        if (scope.readonly == undefined || scope.readonly === false) {
+          scope.ratingValue = index + 1;
+        }
+      };
       scope.$watch('ratingValue', function(newValue) {
         if (newValue) {
           updateValue();
