@@ -97,7 +97,7 @@ angular.module('angularMovieCore').controller("movieFormController", function($s
 
   $scope.addMovie = function(movie) {
     Movie.create(movie)
-      .success(function() {
+      .success(function(movie) {
         $scope.movies.push(movie);
         $scope.movie     = {};
         $scope.showAlert = false;
