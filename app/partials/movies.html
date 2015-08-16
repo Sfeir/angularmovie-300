@@ -65,19 +65,21 @@
     </header>
     <section class="modal-body">
         <form name="movieForm" class="form-horizontal">
-            <div class="control-group" ng-class="{error : movieForm.inputTitle.$error.required}">
+            <div class="control-group" ng-class="{error : movieForm.inputTitle.$error.required || movieForm.inputTitle.$error.titleAvailable}">
                 <label class="control-label">Titre :</label>
-                <input type="text" name="inputTitle" ng-model="movie.title" autofocus required>
+                <input movie-available-validator type="text" name="inputTitle" ng-model="movie.title" ng-model-options="{ debounce: { default : 500, blur: 0 }}" autofocus required />
                 <span class="help-block" ng-show="movieForm.inputTitle.$error.required">Le titre est obligatoire</span>
+                <span class="help-block" ng-show="movieForm.inputTitle.$error.titleAvailable">Le titre n'est pas disponible</span>
             </div>
             <div class="control-group" ng-class="{error : movieForm.inputYear.$error.pattern}">
                 <label class="control-label">Année de sortie :</label>
                 <input type="text" name="inputYear" ng-model="movie.releaseYear" ng-pattern="/(19|20)\d\d/">
                 <span class="help-block" ng-show="movieForm.inputYear.$error.pattern">L'année n'est pas valide</span>
             </div>
-            <div class="control-group">
+            <div class="control-group" ng-class="{error : movieForm.inputDirectors.$error.director}">
                 <label class="control-label">Réalisateur : </label>
-                <input type="text" ng-model="movie.directors">
+                <input director-validator type="text"  name="inputDirectors" ng-model="movie.directors">
+                <span class="help-block" ng-show="movieForm.inputDirectors.$error.director">Le Realisateur doit avoir un nom et un prénom</span>
             </div>
             <div class="control-group">
                 <label class="control-label">Acteurs :</label>
@@ -90,10 +92,7 @@
             </div>
             <div class="control-group" ng-class="{error : movieForm.inputRate.$error.min || movieForm.inputRate.$error.max}">
                 <label class="control-label">Note :</label>
-                <input type="number" name="inputRate" placeholder="entre 1 et 5" ng-model="movie.rate" min="0" max="5">
-                <span class="help-block" ng-show="movieForm.inputRate.$error.min">La note doit être supérieure à 0</span>
-                <span class="help-block" ng-show="movieForm.inputRate.$error.max">La note doit être inférieure à 5</span>
-
+                <rating ng-model="movie.rate" max="5"><i class="fa fa-star"></i></rating>
             </div>
         </form>
     </section>

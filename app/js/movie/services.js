@@ -12,7 +12,6 @@ angular.module('angularMovieCore').provider("Movie", function() {
     return {
       fetch    : fetch,
       search   : search,
-      exist    : exist,
       create   : create,
       remove   : remove,
       fetchOne : fetchOne,
@@ -25,14 +24,6 @@ angular.module('angularMovieCore').provider("Movie", function() {
 
     function search(title) {
       return $http.get(API_URI + '/search?title=' + title);
-    }
-
-    function exist(title) {
-      search(title).then(function() {
-        return true;
-      }, function() {
-        return false;
-      });
     }
 
     function create(movie) {
