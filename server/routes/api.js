@@ -141,27 +141,22 @@ exports.addMovie = function (req, res) {
     }
 
     if(!err){
-        movies.push(movie);
-        res.status(201).json({});
+      if(!movie.id) {
+        var newId = movies.map(function(movie) {
+          return movie.id;
+        }).reduce(function(max, id) {
+          if(id > max) {
+            return id;
+          }else{
+            return max;
+          }
+        });
+        movie.id = newId + 1;
+      }
+      movies.push(movie);
+      res.status(201).json(movie);
     }
 
-};
-
-
-// PUT
-exports.updateMovie = function(req, res) {
-    var movie = req.body;
-    var id = movie.id;
-
-    for(var i = 0; i < movies.length; i++){
-        if(movies[i].id === id){
-            movies.splice(i, 1);
-            movies.push(movie);
-            res.status(200).json({});
-        }
-    }
-
-    res.status(304).json("Not modified");
 };
 
 
