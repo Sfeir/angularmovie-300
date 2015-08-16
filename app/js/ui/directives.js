@@ -61,9 +61,6 @@ angular.module('angularMovieUI').directive('rating', function() {
       if (scope.max == undefined) {
         scope.max = 5;
       }
-      if (scope.ratingValue == undefined) {
-        scope.ratingValue = 1;
-      }
       function updateValue() {
         scope.stars = [];
         for (var i = 0; i < scope.max; i++) {
