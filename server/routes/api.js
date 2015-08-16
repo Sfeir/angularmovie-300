@@ -177,6 +177,18 @@ exports.fetchMovieCasting = function (req, res){
     res.json(404, "Not found");
 };
 
+// GET a movie with query
+exports.searchMovieByTitle = function (req, res){
+    var title = req.query.title;
+
+    if(title && movies.filter(function(movie) {
+          return movie.title == title;
+        }).length) {
+        res.status(200).json({});
+    }
+    res.json(404, "Not found");
+};
+
 // POST
 exports.addMovie = function (req, res) {
     var movie = req.body;

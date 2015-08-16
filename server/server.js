@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, '..', '.tmp')));
 
 // JSON API
 app.get('/server/api/movies', api.fetchMovies);
+app.get('/server/api/movies/search', api.searchMovieByTitle);
 app.get('/server/api/movies/:id', api.fetchMovie);
 app.get('/server/api/movies/:id/informations', api.fetchMovieInformations);
 app.get('/server/api/movies/:id/images', api.fetchMovieImages);
