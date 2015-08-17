@@ -1,7 +1,7 @@
 <!-- header-->
 <header class="page-header">
-    <h1>Ma vidéothèque <small>{{filteredMovies.length}} films</small>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#movie-form-modal">Ajouter un film</button>
+    <h1>{{'app.movies.mylibrary' | translate}} <small>{{filteredMovies.length}} {{'app.movies.xmovies' | translate}}</small>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#movie-form-modal">{{'app.movies.addmovie' | translate}}</button>
     </h1>
 </header>
 
@@ -10,8 +10,8 @@
     <input class="span5" type="text" ng-model="search" placeholder="Rechercher" ng-change="filterMovies()">
     <section class="pull-right">
         <button class="btn btn-success" ng-click="toogleView()"><i ng-class="tableViewIcon"></i></button>
-        <button class="btn btn-info" ng-click="sortMovies('releaseYear', !reverse)">Trier par année</button>
-        <button class="btn btn-info" ng-click="sortMovies('title', !reverse)">Trier par titre</button>
+        <button class="btn btn-info" ng-click="sortMovies('releaseYear', !reverse)">{{'app.movies.sortbyyear' | translate}}</button>
+        <button class="btn btn-info" ng-click="sortMovies('title', !reverse)">{{'app.movies.sortbytitle' | translate}}</button>
     </section>
 </section>
 
@@ -26,11 +26,11 @@
                 <button class="btn btn-danger" ng-click="deleteMovie($index)"><i class="icon-trash icon-white"></i></button>
                 <a class="btn btn-info" href="#/movies/edit/{{movie.id}}"><i class="icon-edit icon-white"></i></a>
             </h3>
-            <editable label="Année de sortie" text="movie.releaseYear"></editable>
-            <editable label="Réalisateurs" text="movie.directors"></editable>
-            <editable label="Acteurs" text="movie.actors"></editable>
-            <p><b>Synopsis : </b>{{movie.synopsis}}</p>
-            <p><b>Note : </b>{{movie.rate | stars}}</p>
+            <editable label="{{'app.common.releaseyear' | translate}}" text="movie.releaseYear"></editable>
+            <editable label="{{'app.common.directors' | translate}}" text="movie.directors"></editable>
+            <editable label="{{'app.common.actors' | translate}}" text="movie.actors"></editable>
+            <p><b>{{'app.common.synopsis' | translate}} : </b>{{movie.synopsis}}</p>
+            <p><b>{{'app.common.rate' | translate}} : </b>{{movie.rate | stars}}</p>
         </div>
     </li>
 </ul>
@@ -38,10 +38,10 @@
     <thead>
     <tr>
         <th>#</th>
-        <th>Titre</th>
-        <th>Réalisateur</th>
-        <th>Année de sortie</th>
-        <th>Note</th>
+        <th>{{'app.common.title' | translate}}</th>
+        <th>{{'app.common.directors' | translate}}</th>
+        <th>{{'app.common.releaseyear' | translate}}</th>
+        <th>{{'app.common.rate' | translate}}</th>
     </tr>
     </thead>
     <tbody>
@@ -61,43 +61,43 @@
 <div id="movie-form-modal" class="modal hide fade" ng-controller="movieFormController">
     <header class="modal-header">
         <button type="button" class="close" data-dismiss="modal">x</button>
-        <h3>Ajouter un film</h3>
+        <h3>{{'app.movies.addmovie' | translate}}</h3>
     </header>
     <section class="modal-body">
         <form name="movieForm" class="form-horizontal">
             <div class="control-group" ng-class="{error : movieForm.inputTitle.$error.required || movieForm.inputTitle.$error.titleAvailable}">
-                <label class="control-label">Titre :</label>
+                <label class="control-label">{{'app.common.title' | translate}} :</label>
                 <input movie-available-validator type="text" name="inputTitle" ng-model="movie.title" ng-model-options="{ debounce: { default : 500, blur: 0 }}" autofocus required />
-                <span class="help-block" ng-show="movieForm.inputTitle.$error.required">Le titre est obligatoire</span>
-                <span class="help-block" ng-show="movieForm.inputTitle.$error.titleAvailable">Le titre n'est pas disponible</span>
+                <span class="help-block" ng-show="movieForm.inputTitle.$error.required">{{'app.form.errors.title.required' | translate}}</span>
+                <span class="help-block" ng-show="movieForm.inputTitle.$error.titleAvailable">{{'app.form.errors.title.unvailable' | translate}}</span>
             </div>
             <div class="control-group" ng-class="{error : movieForm.inputYear.$error.pattern}">
-                <label class="control-label">Année de sortie :</label>
+                <label class="control-label">{{'app.common.releaseyear' | translate}} :</label>
                 <input type="text" name="inputYear" ng-model="movie.releaseYear" ng-pattern="/(19|20)\d\d/">
-                <span class="help-block" ng-show="movieForm.inputYear.$error.pattern">L'année n'est pas valide</span>
+                <span class="help-block" ng-show="movieForm.inputYear.$error.pattern">{{'app.form.errors.releaseyear.pattern' | translate}}</span>
             </div>
             <div class="control-group" ng-class="{error : movieForm.inputDirectors.$error.director}">
-                <label class="control-label">Réalisateur : </label>
+                <label class="control-label">{{'app.common.directors' | translate}} : </label>
                 <input director-validator type="text"  name="inputDirectors" ng-model="movie.directors">
-                <span class="help-block" ng-show="movieForm.inputDirectors.$error.director">Le Realisateur doit avoir un nom et un prénom</span>
+                <span class="help-block" ng-show="movieForm.inputDirectors.$error.director">{{'app.form.errors.directors.name' | translate}}</span>
             </div>
             <div class="control-group">
-                <label class="control-label">Acteurs :</label>
+                <label class="control-label">{{'app.common.actors' | translate}} :</label>
                 <input type="text" ng-model="movie.actors">
             </div>
             <div class="control-group" ng-class="{error : movieForm.textareaSynopsis.$error.maxlength}">
-                <label class="control-label">Synopsis :</label>
+                <label class="control-label">{{'app.common.synopsis' | translate}} :</label>
                 <input type="text" ng-model="movie.synopsis" name="textareaSynopsis"  ng-maxlength="140">
-                <span class="help-block" ng-show="movieForm.textareaSynopsis.$error.maxlength">140 caractères maximum</span>
+                <span class="help-block" ng-show="movieForm.textareaSynopsis.$error.maxlength">140 {{'app.form.errors.synopsis.max' | translate}}</span>
             </div>
             <div class="control-group" ng-class="{error : movieForm.inputRate.$error.min || movieForm.inputRate.$error.max}">
-                <label class="control-label">Note :</label>
+                <label class="control-label">{{'app.common.rate' | translate}} :</label>
                 <rating ng-model="movie.rate" max="5"><i class="fa fa-star"></i></rating>
             </div>
         </form>
     </section>
     <footer class="modal-footer">
-        <button data-dismiss="modal" class="btn btn-danger btn-small">Annuler</button>
-        <button class="btn btn-success" ng-click="addMovie(movie)" ng-disabled="movieForm.$invalid">Ajouter</button>
+        <button data-dismiss="modal" class="btn btn-danger btn-small">{{'app.common.cancel' | translate}}</button>
+        <button class="btn btn-success" ng-click="addMovie(movie)" ng-disabled="movieForm.$invalid">{{'app.common.add' | translate}}</button>
     </footer>
 </div>

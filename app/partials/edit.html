@@ -1,36 +1,36 @@
 <header class="page-header">
-    <h1>Modification</h1>
+    <h1>{{'app.common.edition' | translate}}</h1>
 </header>
 
 <section>
     <form class="form-horizontal">
         <div class="control-group">
-            <label class="control-label">Titre :</label>
+            <label class="control-label">{{'app.common.title' | translate}} :</label>
             <input type="text" ng-model="movie.title">
         </div>
         <div class="control-group">
-            <label class="control-label">Année de sortie :</label>
+            <label class="control-label">{{'app.common.releaseyear' | translate}} :</label>
             <input type="text" ng-model="movie.releaseYear">
         </div>
         <div class="control-group">
-            <label class="control-label">Réalisateur : </label>
+            <label class="control-label">{{'app.common.directors' | translate}} : </label>
             <input type="text" ng-model="movie.directors">
         </div>
         <div class="control-group">
-            <label class="control-label">Acteurs :</label>
+            <label class="control-label">{{'app.common.actors' | translate}} :</label>
             <input type="text" ng-model="movie.actors">
         </div>
         <div class="control-group">
-            <label class="control-label">Synopsis :</label>
+            <label class="control-label">{{'app.common.synopsis' | translate}} :</label>
             <textarea ng-model="movie.synopsis"></textarea>
         </div>
         <div class="control-group">
-            <label class="control-label">Note :</label>
+            <label class="control-label">{{'app.common.rate' | translate}} :</label>
             <rating ng-model="movie.rate" max="5"><i class="fa fa-star"></i></rating>
         </div>
         <footer class="form-actions">
-            <a href="#/movies" class="btn btn-danger btn-small">Annuler</a>
-            <button class="btn btn-success" ng-click="updateMovie(movie)">Ajouter</button>
+            <a href="#/movies" class="btn btn-danger btn-small">{{'app.common.cancel' | translate}}</a>
+            <button class="btn btn-success" ng-click="updateMovie(movie)">{{'app.common.edit' | translate}}</button>
         </footer>
     </form>
 </section>

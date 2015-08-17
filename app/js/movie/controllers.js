@@ -1,8 +1,15 @@
 "use strict";
 
-angular.module('angularMovieCore').controller("mainController", function($scope, $rootScope) {
+angular.module('angularMovieCore').controller("mainController", function($scope, $rootScope, $translate) {
 
   $scope.loading = false;
+
+  $scope.setLang = function(lang) {
+    var newLang = lang || 'frFR';
+    $translate.use(newLang).then(function() {
+      console.log('New Lang : ' + $translate.use());
+    });
+  };
 
   $rootScope.$on('$stateChangeStart',
     function (event, toState, toParams, fromState, fromParams) {
@@ -19,7 +26,6 @@ angular.module('angularMovieCore').controller("mainController", function($scope,
       console.error('StateError', event);
       $scope.loading = false;
     });
-
 });
 
 angular.module('angularMovieCore').controller("homeController", function($scope) {
