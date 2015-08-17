@@ -1,0 +1,53 @@
+{
+  "app": {
+    "common": {
+      "welcome": "Bienvenue",
+      "hello": "Bonjour",
+      "title": "Titre",
+      "releaseyear": "Année de sortie",
+      "directors": "Réalisateurs",
+      "actors": "Acteurs",
+      "synopsis": "Synopsis",
+      "rate": "Note",
+      "add": "Ajouter",
+      "edition": "Modification",
+      "edit": "Modifier"
+    },
+    "main": {
+      "mymovies": "Mes films",
+      "xmovies": " films"
+    },
+    "home": {
+      "welcomemsg": "Bienvenue sur AngularMovie, votre cinéthèque développée avec"
+    },
+    "movies": {
+      "mylibrary": "Ma vidéothèque",
+      "addmovie": "Ajouter un film",
+      "sortbyyear": "Trier par année",
+      "sortbytitle": "Trier par titre"
+    },
+    "movie": {
+      "back": "Retour à la vidéothèque",
+      "infos": "Informations",
+      "pictures": "Images",
+      "casting": "Casting"
+    },
+    "form": {
+      "errors": {
+        "title": {
+          "required": "Le titre est obligatoire",
+          "unvailable": "Le titre n'est pas disponible"
+        },
+        "releaseyear": {
+          "pattern": "L'année n'est pas valide"
+        },
+        "directors": {
+          "name": "Le Realisateur doit avoir un nom et un prénom"
+        },
+        "synopsis": {
+          "max": " caractères maximum"
+        }
+      }
+    }
+  }
+}
