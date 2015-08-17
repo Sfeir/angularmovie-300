@@ -14,11 +14,11 @@
       <section class="container">
          <a class="brand" href="#/welcome">AngularMovie</a>
          <ul class="nav">
-            <li><a href="#/movies">Mes films</a></li>
+            <li><a href="#/movies">{{'app.main.mymovies' | translate}}</a></li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><img src="img/fr.png" alt=""/></a></li>
-            <li><a href="#"><img src="img/gb.png" alt=""/></a></li>
+            <li><a ng-click="setLang('frFR')"><img src="img/fr.png" alt=""/></a></li>
+            <li><a ng-click="setLang('enUS')"><img src="img/gb.png" alt=""/></a></li>
          </ul>
       </section>
    </div>
@@ -28,12 +28,15 @@
 <div ng-show="loading" class="modal-loading text-center">
    <i class="fa fa-spinner fa-spin fa-5x"></i>
 </div>
+
 <section class="container" ui-view></section>
 
 <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="bower_components/bootstrap.css/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
+<script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/movie/movie.module.js"></script>
 <script type="text/javascript" src="js/movie/services.js"></script>

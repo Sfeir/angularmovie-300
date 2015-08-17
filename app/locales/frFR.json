@@ -10,17 +10,18 @@
       "synopsis": "Synopsis",
       "rate": "Note",
       "add": "Ajouter",
+      "cancel": "Annuler",
       "edition": "Modification",
       "edit": "Modifier"
     },
     "main": {
-      "mymovies": "Mes films",
-      "xmovies": " films"
+      "mymovies": "Mes films"
     },
     "home": {
       "welcomemsg": "Bienvenue sur AngularMovie, votre cinéthèque développée avec"
     },
     "movies": {
+      "xmovies": " films",
       "mylibrary": "Ma vidéothèque",
       "addmovie": "Ajouter un film",
       "sortbyyear": "Trier par année",

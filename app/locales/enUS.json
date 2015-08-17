@@ -5,22 +5,23 @@
       "hello": "Hello",
       "title": "Title",
       "releaseyear": "Release year",
-      "directors": "Directorss",
+      "directors": "Directors",
       "actors": "Actors",
       "synopsis": "Synopsis",
       "rate": "Rate",
       "add": "Add",
+      "cancel": "Cancel",
       "edition": "Edition",
       "edit": "Edit"
     },
     "main": {
-      "mymovies": "My movies",
-      "xmovies": " movies"
+      "mymovies": "My movies"
     },
     "home": {
       "welcomemsg": "Welcome on AngularMovie, your library developed with"
     },
     "movies": {
+      "xmovies": " movies",
       "mylibrary": "My library",
       "addmovie": "Add a movie",
       "sortbyyear": "Sort by year",
@@ -39,7 +40,7 @@
           "unvailable": "This title is not available"
         },
         "releaseyear": {
-          "pattern": "The yead is not valide"
+          "pattern": "The year is not valide"
         },
         "directors": {
           "name": "The director must have a firstname and a lastname"
