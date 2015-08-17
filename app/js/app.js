@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('angularMovieApp', ['ui.router', 'angularMovieUI', 'angularMovieCore']);
+angular.module('angularMovieApp', ['ui.router', 'angularMovieUI', 'angularMovieCore', 'pascalprecht.translate']);
 
 angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProvider, MovieProvider) {
 
@@ -29,10 +29,19 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
       url         : '/movies/edit/:id',
       templateUrl : 'partials/edit.html',
       controller  : 'editMovieController'
-    })
+    });
 
 
   $urlRouterProvider.otherwise('/home');
 
   MovieProvider.setURI('/server/api/movies');
 });
+
+angular.module('angularMovieApp').config(['$translateProvider', function ($translateProvider) {
+  "use strict";
+  $translateProvider.useStaticFilesLoader({
+    prefix: 'locales/',
+    suffix: '.json'
+  });
+  $translateProvider.preferredLanguage('frFR');
+}]);
