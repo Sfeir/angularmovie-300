@@ -121,7 +121,10 @@ exports.fetchMovie = function (req, res){
 
     for(var i = 0; i < movies.length; i++){
         if(movies[i].id == id){
-            res.status(200).json(movies[i]);
+            var result = movies[i]; // Ici on ajoute des données inutiles pour pouvoir tester les transformeurs
+            result.returned_at = Date.now();
+            console.log(result);
+            res.status(200).json(result);
         }
     }
 
