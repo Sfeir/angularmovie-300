@@ -14,7 +14,7 @@ angular.module('angularMovieCore').provider("Movie", function() {
     HTTP_GET_CONFIG = {
       transformResponse : function(response) {
         console.info('Response transformed');
-        return angular.fromJson(response).data ? angular.fromJson(response).data : response;
+        return angular.fromJson(response).data ? angular.fromJson(response).data : angular.fromJson(response);
       }
     };
 
