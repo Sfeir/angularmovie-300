@@ -71,10 +71,10 @@ angular.module('angularMovieCore').controller("moviesController", function($scop
 
 });
 
-angular.module('angularMovieCore').controller('movieController', function($scope, casting, images, informations, $state, Movie) {
-  $scope.casting = casting.data;
-  $scope.images = images.data;
-  $scope.informations = informations.data;
+angular.module('angularMovieCore').controller('movieController', function($scope, movie, $state, Movie) {
+  $scope.casting = movie.casting.data;
+  $scope.images = movie.images.data;
+  $scope.informations = movie.informations.data;
 
   $scope.deleteMovie = function(id) {
     Movie.remove(id)
