@@ -150,6 +150,8 @@ exports.fetchMovieInformations = function (req, res){
     for(var i = 0; i < movies.length; i++){
         if(movies[i].id == id){
             res.status(200).json({
+                id: movies[i].id,
+                title: movies[i].title,
                 releaseYear: movies[i].releaseYear,
                 synopsis: movies[i].synopsis,
                 rate: movies[i].rate
