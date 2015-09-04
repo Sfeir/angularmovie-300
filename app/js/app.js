@@ -15,8 +15,14 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
       templateUrl : 'partials/movie.html',
       controller  : 'movieController',
       resolve     : {
-        movie : function($stateParams, Movie) {
-          return Movie.fetchOne($stateParams.id);
+        casting: function($stateParams, Movie) {
+          return Movie.fetchCasting($stateParams.id)
+        },
+        images: function($stateParams, Movie) {
+          return Movie.fetchImages($stateParams.id);
+        },
+        informations: function($stateParams, Movie) {
+          return Movie.fetchInformations($stateParams.id);
         }
       }
     })
@@ -29,8 +35,7 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
       url         : '/movies/edit/:id',
       templateUrl : 'partials/edit.html',
       controller  : 'editMovieController'
-    })
-
+    });
 
   $urlRouterProvider.otherwise('/home');
 

@@ -1,7 +1,7 @@
 <header class="page-header">
-   <h1>{{movie.title | uppercase}}</h1>
-   <button class="btn btn-danger" ng-click="deleteMovie(movie.id)" title="Supprimer de la vidéothèque"><i class="icon-trash icon-white"></i></button>
-   <button class="btn btn-info" ui-sref="editmovie({id : movie.id})" title="Editer la fiche<"><i class="icon-edit icon-white"></i></button>
+   <h1>{{informations.title | uppercase}}</h1>
+   <button class="btn btn-danger" ng-click="deleteMovie(informations.id)" title="Supprimer de la vidéothèque"><i class="icon-trash icon-white"></i></button>
+   <button class="btn btn-info" ui-sref="editmovie({id : informations.id})" title="Editer la fiche<"><i class="icon-edit icon-white"></i></button>
 
    <button style="float:right;" class="btn btn-default" ui-sref="movies">Retour à la vidéothèque</button>
 </header>
@@ -15,16 +15,16 @@
 
    <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="infos">
-         <p><b>Année de sortie : </b>{{movie.releaseYear}}</p>
-         <p><b>Synopsis : </b>{{movie.synopsis}}</p>
-         <p><b>Note : </b>{{movie.rate | stars}}</p>
+         <p><b>Année de sortie : </b>{{informations.releaseYear}}</p>
+         <p><b>Synopsis : </b>{{informations.synopsis}}</p>
+         <p><b>Note : </b>{{informations.rate | stars}}</p>
       </div>
       <div role="tabpanel" class="tab-pane" id="images">
-         <img ng-src="{{movie.poster | poster}}" class="span2">
+         <img ng-src="{{images.poster | poster}}" class="span2">
       </div>
       <div role="tabpanel" class="tab-pane" id="casting">
-         <p><b>Réalisateurs : </b>{{movie.directors}}</p>
-         <p><b>Acteurs : </b>{{movie.actors}}</p>
+         <p><b>Réalisateurs : </b>{{casting.directors}}</p>
+         <p><b>Acteurs : </b>{{casting.actors}}</p>
       </div>
    </div>
 </section>
