@@ -30,7 +30,7 @@ angular.module('angularMovieCore').controller("mainController", function($scope,
 
 angular.module('angularMovieCore').controller("homeController", function($scope) {
 
-  $scope.user = 'Thierry LAU';
+  $scope.user = '';
 
 });
 
@@ -74,7 +74,7 @@ angular.module('angularMovieCore').controller("moviesController", function($scop
     $scope.reverse = reverse;
     $scope.filteredMovies = $filter('orderBy')($scope.filteredMovies, $scope.tri, $scope.reverse);
   };
-  
+
 
 });
 
