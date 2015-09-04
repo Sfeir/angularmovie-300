@@ -8,11 +8,16 @@ var express        = require('express'),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
     path           = require('path'),
-    app            = express();
+    app            = express(),
+    cookieParser   = require('cookie-parser'),
+    csrf           = require('csurf');
 
 // Configuration
 app.set('port', 9000);
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({extended : false}));
+app.use(cookieParser());
+app.use(csrf({cookie : true}));
+
 //app.use(methodOverride());
 app.use(express.static(path.join(__dirname, '..', '.tmp')));
 
