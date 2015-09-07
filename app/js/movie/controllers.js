@@ -68,12 +68,13 @@ angular.module('angularMovieCore').controller("moviesController", function($scop
     $scope.reverse = reverse;
     $scope.filteredMovies = $filter('orderBy')($scope.filteredMovies, $scope.tri, $scope.reverse);
   };
-  
 
 });
 
 angular.module('angularMovieCore').controller('movieController', function($scope, movie, $state, Movie) {
-  $scope.movie = movie.data;
+  $scope.casting = movie.casting.data;
+  $scope.images = movie.images.data;
+  $scope.informations = movie.informations.data;
 
   $scope.deleteMovie = function(id) {
     Movie.remove(id)

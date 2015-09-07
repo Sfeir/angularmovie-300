@@ -15,8 +15,21 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
       templateUrl : 'partials/movie.html',
       controller  : 'movieController',
       resolve     : {
-        movie : function($stateParams, Movie) {
-          return Movie.fetchOne($stateParams.id);
+        movie: function($stateParams, Movie) {
+          return Movie.fetchCasting($stateParams.id)
+            .then(function(casting) {
+              return Movie.fetchImages($stateParams.id)
+                .then(function(images) {
+                  return Movie.fetchInformations($stateParams.id)
+                    .then(function(informations) {
+                      return {
+                        casting: casting,
+                        images: images,
+                        informations: informations
+                      }
+                    });
+                });
+            });
         }
       }
     })
@@ -29,8 +42,7 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
       url         : '/movies/edit/:id',
       templateUrl : 'partials/edit.html',
       controller  : 'editMovieController'
-    })
-
+    });
 
   $urlRouterProvider.otherwise('/home');
 
