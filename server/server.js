@@ -69,6 +69,9 @@ app.use(express.static(path.join(__dirname, '..', '.tmp')));
 
 // JSON AUTH
 app.get('/server/auth', function(req, res) {
+  if (!req.isAuthenticated()) {
+    res.status(200).json({error : 'Not Authenticated'});
+  }
   res.status(200).json({user : req.user});
 });
 app.post('/server/auth',
