@@ -92,7 +92,7 @@
             </div>
             <div class="control-group" ng-class="{error : movieForm.inputRate.$error.min || movieForm.inputRate.$error.max}">
                 <label class="control-label">{{'app.common.rate' | translate}} :</label>
-                <rating ng-model="movie.rate" max="5"><i class="fa fa-star"></i></rating>
+                <rating-movie ng-model="movie.rate" max="5"><i class="fa fa-star"></i></rating-movie>
             </div>
         </form>
     </section>

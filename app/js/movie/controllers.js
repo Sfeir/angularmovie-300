@@ -1,8 +1,16 @@
 "use strict";
 
-angular.module('angularMovieCore').controller("mainController", function($scope, $rootScope, $translate) {
+angular.module('angularMovieCore').controller("mainController", function($scope, $rootScope, $translate, $modal, errInterceptorConfig, Auth, $state) {
 
-  $scope.loading = false;
+  $scope.loading          = false;
+  $scope.modalLoginOpened = false;
+  $scope.logged           = false;
+
+  Auth.getCredentials().then(function(response) {
+    if (response.data.user && response.data.user.id) {
+      $scope.logged = true;
+    }
+  });
 
   $scope.setLang = function(lang) {
     var newLang = lang || 'frFR';
@@ -12,20 +20,59 @@ angular.module('angularMovieCore').controller("mainController", function($scope,
   };
 
   $rootScope.$on('$stateChangeStart',
-    function (event, toState, toParams, fromState, fromParams) {
-    $scope.loading = true;
+    function(event, toState, toParams, fromState, fromParams) {
+      $scope.loading = true;
     });
 
   $rootScope.$on('$stateChangeSuccess',
-    function (event, toState, toParams, fromState, fromParams) {
+    function(event, toState, toParams, fromState, fromParams) {
       $scope.loading = false;
     });
 
   $rootScope.$on('$stateChangeError',
-    function (event, toState, toParams, fromState, fromParams) {
+    function(event, toState, toParams, fromState, fromParams) {
       console.error('StateError', event);
       $scope.loading = false;
     });
+
+  $rootScope.$on(errInterceptorConfig.ERR_EVENT,
+    function(event, error) {
+      if (error.status === 401) {
+        $scope.login();
+      }
+    });
+
+  $rootScope.$on('LOGIN_SUCCESS',
+    function() {
+      $scope.logged = true;
+    });
+
+  $rootScope.$on('LOGIN_ERROR',
+    function() {
+      $scope.logged = false;
+    });
+
+  $scope.login = function() {
+    if (!$scope.modalLoginOpened) {
+      var modal               = $modal.open({
+        templateUrl : 'partials/modal-form-login.html',
+        controller  : 'loginController'
+      });
+      $scope.modalLoginOpened = true;
+      modal.result.finally(function() {
+        $scope.modalLoginOpened = false;
+      });
+    }
+  };
+
+  $scope.logout = function() {
+    Auth.logout().then(function() {
+      $scope.logged = false;
+      $state.go('home');
+    }, function(e) {
+      $state.go('home');
+    });
+  };
 });
 
 angular.module('angularMovieCore').controller("homeController", function($scope) {
@@ -53,7 +100,7 @@ angular.module('angularMovieCore').controller("moviesController", function($scop
   };
 
   Movie.fetch().success(function(resp) {
-    $scope.movies = resp;
+    $scope.movies         = resp;
     $scope.filteredMovies = $scope.movies;
   });
 
@@ -70,8 +117,8 @@ angular.module('angularMovieCore').controller("moviesController", function($scop
   };
 
   $scope.sortMovies = function(tri, reverse) {
-    $scope.tri = tri;
-    $scope.reverse = reverse;
+    $scope.tri            = tri;
+    $scope.reverse        = reverse;
     $scope.filteredMovies = $filter('orderBy')($scope.filteredMovies, $scope.tri, $scope.reverse);
   };
 
@@ -83,7 +130,7 @@ angular.module('angularMovieCore').controller('movieController', function($scope
 
   $scope.deleteMovie = function(id) {
     Movie.remove(id)
-      .success(function(resp){
+      .success(function(resp) {
         $state.go('movies');
       }
     );

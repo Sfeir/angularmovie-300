@@ -43,7 +43,7 @@ angular.module('angularMovieUI').directive('editable', function() {
 
 });
 
-angular.module('angularMovieUI').directive('rating', function() {
+angular.module('angularMovieUI').directive('ratingMovie', function() {
   return {
     restrict   : 'E',
     transclude : true,

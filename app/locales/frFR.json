@@ -12,7 +12,9 @@
       "add": "Ajouter",
       "cancel": "Annuler",
       "edition": "Modification",
-      "edit": "Modifier"
+      "edit": "Modifier",
+      "login": "Se connecter",
+      "logout": "Se déconnecter"
     },
     "main": {
       "mymovies": "Mes films"
@@ -49,6 +51,10 @@
           "max": " caractères maximum"
         }
       }
+    },
+    "login": {
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe"
     }
   }
 }

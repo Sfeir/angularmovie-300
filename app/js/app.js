@@ -1,8 +1,8 @@
 "use strict";
 
-angular.module('angularMovieApp', ['ui.router', 'angularMovieUI', 'angularMovieCore', 'pascalprecht.translate']);
+angular.module('angularMovieApp', ['ui.router', 'angularMovieUI', 'angularMovieCore', 'app.interceptors', 'pascalprecht.translate', 'ngCookies', 'ui.bootstrap']);
 
-angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProvider, MovieProvider) {
+angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProvider, MovieProvider, AuthProvider) {
 
   $stateProvider
     .state('home', {
@@ -35,13 +35,15 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
   $urlRouterProvider.otherwise('/home');
 
   MovieProvider.setURI('/server/api/movies');
+  AuthProvider.setURI('/server/auth');
 });
 
-angular.module('angularMovieApp').config(['$translateProvider', function ($translateProvider) {
+angular.module('angularMovieApp').config(['$translateProvider', function($translateProvider) {
   "use strict";
   $translateProvider.useStaticFilesLoader({
-    prefix: 'locales/',
-    suffix: '.json'
+    prefix : 'locales/',
+    suffix : '.json'
   });
   $translateProvider.preferredLanguage('frFR');
 }]);
+

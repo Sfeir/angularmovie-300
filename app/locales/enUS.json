@@ -12,7 +12,9 @@
       "add": "Add",
       "cancel": "Cancel",
       "edition": "Edition",
-      "edit": "Edit"
+      "edit": "Edit",
+      "login": "Login",
+      "logout": "logout"
     },
     "main": {
       "mymovies": "My movies"
@@ -49,6 +51,10 @@
           "max": " maximum chars"
         }
       }
+    },
+    "login": {
+      "username": "Username",
+      "password": "Password"
     }
   }
 }
