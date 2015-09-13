@@ -125,7 +125,7 @@ exports.fetchMovie = function (req, res){
         }
     }
 
-    res.json(404, "Not found");
+    res.status(404).json("Not found");
 };
 
 
@@ -139,7 +139,7 @@ exports.fetchMovieImages = function (req, res){
         }
     }
 
-    res.json(404, "Not found");
+    res.status(404).json("Not found");
 };
 
 
@@ -157,7 +157,7 @@ exports.fetchMovieInformations = function (req, res){
         }
     }
 
-    res.json(404, "Not found");
+    res.status(404).json("Not found");
 };
 
 
@@ -174,7 +174,7 @@ exports.fetchMovieCasting = function (req, res){
         }
     }
 
-    res.json(404, "Not found");
+    res.status(404).json("Not found");
 };
 
 // GET Movies with a title
@@ -189,7 +189,7 @@ exports.searchMovieByTitle = function (req, res){
     if(title && results.length) {
         res.status(200).json(results);
     }
-    res.json(404, "Not found");
+    res.status(404).json("Not found");
 };
 
 // POST
