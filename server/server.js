@@ -42,7 +42,6 @@ passport.deserializeUser(function(id, next) {
 
 isLoggedIn = function(req, res, next) {
   if (!req.isAuthenticated()) {
-    console.log(req.isAuthenticated(), req);
     var err    = new Error();
     err.status = 401;
     return next(err);
