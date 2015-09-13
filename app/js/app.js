@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('angularMovieApp', ['ui.router', 'angularMovieUI', 'angularMovieCore', 'app.interceptors', 'pascalprecht.translate', 'ngCookies', 'ui.bootstrap']);
+angular.module('angularMovieApp', ['ui.router', 'angularMovieUI', 'angularMovieCore', 'pascalprecht.translate', 'ngCookies', 'ui.bootstrap']);
 
 angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProvider, MovieProvider, AuthProvider) {
 

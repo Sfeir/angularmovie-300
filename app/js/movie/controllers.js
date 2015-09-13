@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('angularMovieCore').controller("mainController", function($scope, $rootScope, $translate, $modal, errInterceptorConfig, Auth, $state) {
+angular.module('angularMovieCore').controller("mainController", function($scope, $rootScope, $translate, $modal, Auth, $state) {
 
   $scope.loading          = false;
   $scope.modalLoginOpened = false;
@@ -33,13 +33,6 @@ angular.module('angularMovieCore').controller("mainController", function($scope,
     function(event, toState, toParams, fromState, fromParams) {
       console.error('StateError', event);
       $scope.loading = false;
-    });
-
-  $rootScope.$on(errInterceptorConfig.ERR_EVENT,
-    function(event, error) {
-      if (error.status === 401) {
-        $scope.login();
-      }
     });
 
   $rootScope.$on('LOGIN_SUCCESS',
