@@ -53,16 +53,16 @@ isLoggedIn = function(req, res, next) {
 app.set('port', 9000);
 app.use(bodyParser());
 app.use(cookieParser());
-//app.use(csrf({cookie : true}));
+app.use(csrf({cookie : true}));
 app.use(session({secret : 'SfeirRocks', resave : false, saveUninitialized : false}));
 
 app.use(passport.initialize());
 app.use(passport.session());
-//app.use(function(req, res, next) {
-//  //res.cookie('XSRF-TOKEN', req.csrfToken());
-//  res.cookie('SfeirToken', req.csrfToken());
-//  next();
-//});
+app.use(function(req, res, next) {
+  //res.cookie('XSRF-TOKEN', req.csrfToken());
+  res.cookie('SfeirToken', req.csrfToken());
+  next();
+});
 
 //app.use(methodOverride());
 app.use(express.static(path.join(__dirname, '..', '.tmp')));
