@@ -74,7 +74,7 @@ angular.module('angularMovieCore').controller("moviesController", function($scop
     $scope.reverse = reverse;
     $scope.filteredMovies = $filter('orderBy')($scope.filteredMovies, $scope.tri, $scope.reverse);
   };
-  
+
 
 });
 
