@@ -13,7 +13,7 @@
       responseError : function(rejection) {
         if (rejection.status >= 400) {
           $log.error(rejection.status + ' responded');
-          $rootScope.$broadcast(errInterceptorConfig.ERR_EVENT, rejection);
+          $rootScope.$emit(errInterceptorConfig.ERR_EVENT, rejection);
         }
         return $q.reject(rejection);
       }
