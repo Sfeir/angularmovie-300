@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "angular": "~1.4",
+    "angular-bootstrap": "~0.13.4",
     "angular-cookies": "~1.4.5",
     "angular-route": "~1.4",
     "angular-translate": "~2.7.2",
