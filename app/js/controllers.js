@@ -2,7 +2,7 @@
 
 angularMovieApp.controller("homeController" ,function ($scope) {
 
-    $scope.user = 'Thierry LAU';
+    $scope.user = '';
 
 });
 
