@@ -20,13 +20,15 @@
   ],
   "dependencies": {
     "angular": "~1.4",
+    "angular-bootstrap": "~0.13.4",
+    "angular-cookies": "~1.4.5",
     "angular-route": "~1.4",
-    "angular-ui-router": "~0.2.15",
-    "bootstrap.css": "2.1.1",
-    "jquery": "1.8.2",
-    "fontawesome": "~4.3.0",
     "angular-translate": "~2.7.2",
     "angular-translate-loader-static-files": "~2.7.2",
-    "angular-translate-loader-url": "~2.7.2"
+    "angular-translate-loader-url": "~2.7.2",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap.css": "2.1.1",
+    "fontawesome": "~4.3.0",
+    "jquery": "1.8.2"
   }
 }
