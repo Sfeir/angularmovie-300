@@ -1,12 +1,12 @@
 "use strict";
 
-angularMovieApp.controller("homeController" ,function ($scope) {
+angular.module('angularMovieCore').controller("homeController" ,function ($scope) {
 
     $scope.user = '';
 
 });
 
-angularMovieApp.controller("moviesController" ,function ($scope, Movie) {
+angular.module('angularMovieCore').controller("moviesController" ,function ($scope, Movie) {
 
     // display mode by default
     $scope.tableView = false;
@@ -38,7 +38,7 @@ angularMovieApp.controller("moviesController" ,function ($scope, Movie) {
 
 });
 
-angularMovieApp.controller('editMovieController', function($scope, Movie, $routeParams, $location){
+angular.module('angularMovieCore').controller('editMovieController', function($scope, Movie, $routeParams, $location){
 
      var movieId = $routeParams.id;
 
@@ -57,7 +57,7 @@ angularMovieApp.controller('editMovieController', function($scope, Movie, $route
     };
 });
 
-angularMovieApp.controller("movieFormController" ,function ($scope, Movie) {
+angular.module('angularMovieCore').controller("movieFormController" ,function ($scope, Movie) {
 
     $scope.showAlert = false;
 

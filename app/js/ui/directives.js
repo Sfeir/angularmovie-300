@@ -4,7 +4,7 @@
  * inspired by http://www.adobe.com/devnet/html5/articles/angularjs-directives-and-the-computer-science-of-javascript.html
  * by Burke Holland
  */
-angularMovieApp.directive('editable', function(){
+angular.module('angularMovieUI').directive('editable', function(){
 
     return {
         restrict : 'E',

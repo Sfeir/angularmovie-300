@@ -1,8 +1,8 @@
 "use strict";
 
-var angularMovieApp = angular.module('angularMovieApp', ['ngRoute']);
+angular.module('angularMovieApp', ['ngRoute', 'angularMovieUI', 'angularMovieCore']);
 
-angularMovieApp.config(function($routeProvider) {
+angular.module('angularMovieApp').config(function($routeProvider) {
     $routeProvider
         .when('/home', {
             templateUrl: 'partials/home.html',
