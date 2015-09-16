@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "test": "karma start",
+    "e2e": "protractor protractor.conf.js"
   },
   "engines": {
     "node": ">=0.8.x",
@@ -18,8 +20,15 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-watch": "~0.5.2",
     "grunt-express": "^1.4.1",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-coverage": "^0.5.1",
+    "karma-jasmine": "^0.3.6",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "karma-phantomjs-launcher": "^0.2.1",
     "load-grunt-tasks": "~0.2.0",
     "method-override": "^2.1.2",
+    "protractor": "^2.2.0",
     "time-grunt": "~0.2.0"
   },
   "dependencies": {
