@@ -19,6 +19,7 @@ angular.module('angularMovieCore').controller('loginController', function($scope
         form.$setPristine();
         $modalInstance.close('success');
         $rootScope.$emit( 'LOGIN_SUCCESS' );
+        $state.go($state.current, {}, {reload: true});
       }, function(e) {
         $log.error('Something wrong happened: ', e);
         $scope.formLogin.hasError = true;
