@@ -24,7 +24,7 @@ angular.module('angularMovieCore').controller("mainController", function($scope,
 
 angular.module('angularMovieCore').controller("homeController", function($scope) {
 
-  $scope.user = 'Thierry LAU';
+  $scope.user = '';
 
 });
 
