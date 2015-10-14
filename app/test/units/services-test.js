@@ -1,6 +1,5 @@
 'use strict';
 
-// TODO MARCHE PO
 describe('Movie service', function() {
   var API_URI = '/server/api/movies';
   var httpBackend;
