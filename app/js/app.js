@@ -22,7 +22,7 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
       views   : {
         ''       : {
           templateUrl : 'partials/movie.html',
-          controller  : 'movieController',
+          controller  : 'movieController'
         },
         'header' : {
           templateUrl : 'partials/header.html'
