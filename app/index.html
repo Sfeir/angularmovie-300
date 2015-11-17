@@ -9,16 +9,7 @@
 <body ng-controller="mainController">
 
 <!-- barre de navigation -->
-<header class="navbar navbar-fixed-top">
-   <div class="navbar-inner">
-      <section class="container">
-         <a class="brand" href="#/welcome">AngularMovie</a>
-         <ul class="nav">
-            <li><a href="#/movies">Mes films</a></li>
-         </ul>
-      </section>
-   </div>
-</header>
+<div ui-view="header"></div>
 
 <!-- partie principale -->
 <div ng-show="loading" class="modal-loading text-center">
