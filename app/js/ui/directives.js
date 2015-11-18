@@ -58,9 +58,8 @@ angular.module('angularMovieUI').directive('rating', function() {
       readonly    : '=?'
     },
     link       : function(scope, element, attributes) {
-      if (scope.max == undefined) {
-        scope.max = 5;
-      }
+      scope.max = scope.max || 5;
+
       function updateValue() {
         scope.stars = [];
         for (var i = 0; i < scope.max; i++) {
