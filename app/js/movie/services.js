@@ -9,6 +9,15 @@ angular.module('angularMovieCore').provider("Movie", function() {
   };
 
   _this.$get = ['$http', '$q', function($http, $q) {
+    var HTTP_GET_CONFIG;
+
+    HTTP_GET_CONFIG = {
+      transformResponse : function(response) {
+        console.info('Response transformed');
+        return angular.fromJson(response).data ? angular.fromJson(response).data : angular.fromJson(response);
+      }
+    };
+
     return {
       fetch     : fetch,
       search    : search,
