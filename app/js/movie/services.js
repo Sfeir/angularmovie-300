@@ -8,23 +8,15 @@ angular.module('angularMovieCore').provider("Movie", function() {
     API_URI = URI;
   };
 
-  _this.$get = ['$http', function($http) {
-    var HTTP_GET_CONFIG;
-
-    HTTP_GET_CONFIG = {
-      transformResponse : function(response) {
-        console.info('Response transformed');
-        return angular.fromJson(response).data ? angular.fromJson(response).data : angular.fromJson(response);
-      }
-    };
-
+  _this.$get = ['$http', '$q', function($http, $q) {
     return {
-      fetch    : fetch,
-      search   : search,
-      create   : create,
-      remove   : remove,
-      fetchOne : fetchOne,
-      update   : update
+      fetch     : fetch,
+      search    : search,
+      create    : create,
+      remove    : remove,
+      fetchOne  : fetchOne,
+      update    : update,
+      available : available
     };
 
     function fetch() {
@@ -33,6 +25,16 @@ angular.module('angularMovieCore').provider("Movie", function() {
 
     function search(title) {
       return $http.get(API_URI + '/search?title=' + title, HTTP_GET_CONFIG);
+    }
+
+    function available(title) {
+      var d = $q.defer();
+      search(title).then(function() {
+        d.reject();
+      }, function() {
+        d.resolve();
+      });
+      return d.promise;
     }
 
     function create(movie) {
@@ -51,5 +53,4 @@ angular.module('angularMovieCore').provider("Movie", function() {
       return $http.put(API_URI, movie, HTTP_GET_CONFIG);
     }
   }];
-
 });
