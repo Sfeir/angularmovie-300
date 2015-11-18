@@ -8,15 +8,15 @@ angular.module('angularMovieCore').provider("Movie", function() {
     API_URI = URI;
   };
 
-  _this.$get = ['$http', function($http) {
+  _this.$get = ['$http', '$q', function($http, $q) {
     return {
-      fetch    : fetch,
-      search   : search,
-      exist    : exist,
-      create   : create,
-      remove   : remove,
-      fetchOne : fetchOne,
-      update   : update
+      fetch     : fetch,
+      search    : search,
+      create    : create,
+      remove    : remove,
+      fetchOne  : fetchOne,
+      update    : update,
+      available : available
     };
 
     function fetch() {
@@ -27,12 +27,14 @@ angular.module('angularMovieCore').provider("Movie", function() {
       return $http.get(API_URI + '/search?title=' + title);
     }
 
-    function exist(title) {
+    function available(title) {
+      var d = $q.defer();
       search(title).then(function() {
-        return true;
+        d.reject();
       }, function() {
-        return false;
+        d.resolve();
       });
+      return d.promise;
     }
 
     function create(movie) {
