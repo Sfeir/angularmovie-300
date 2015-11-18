@@ -122,6 +122,7 @@ exports.fetchMovie = function (req, res){
     for(var i = 0; i < movies.length; i++){
         if(movies[i].id == id){
             res.status(200).json(movies[i]);
+            return;
         }
     }
 
@@ -136,6 +137,7 @@ exports.fetchMovieImages = function (req, res){
     for(var i = 0; i < movies.length; i++){
         if(movies[i].id == id){
             res.status(200).json({poster: movies[i].poster});
+            return;
         }
     }
 
@@ -156,6 +158,7 @@ exports.fetchMovieInformations = function (req, res){
                 synopsis: movies[i].synopsis,
                 rate: movies[i].rate
             });
+            return;
         }
     }
 
@@ -173,6 +176,7 @@ exports.fetchMovieCasting = function (req, res){
                 directors: movies[i].directors,
                 actors: movies[i].actors
             });
+            return;
         }
     }
 
@@ -210,7 +214,6 @@ exports.addMovie = function (req, res) {
 
 };
 
-
 // PUT
 exports.updateMovie = function(req, res) {
     var movie = req.body;
@@ -221,6 +224,7 @@ exports.updateMovie = function(req, res) {
             movies.splice(i, 1);
             movies.push(movie);
             res.status(200).json({});
+            return;
         }
     }
 
