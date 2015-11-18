@@ -29,7 +29,7 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
       url         : '/movies/edit/:id',
       templateUrl : 'partials/edit.html',
       controller  : 'editMovieController'
-    })
+    });
 
 
   $urlRouterProvider.otherwise('/home');
