@@ -100,11 +100,7 @@ angular.module('angularMovieUI').directive('movieAvailableValidator', ['Movie', 
     require : 'ngModel',
     link : function($scope, element, attrs, ngModel) {
       ngModel.$asyncValidators.titleAvailable = function(title) {
-        return Movie.search(title).then(function() {
-          return $q.reject('exists');
-        }, function() {
-          return true;
-        });
+        return Movie.available(title);
       };
     }
   }
