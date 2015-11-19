@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module('angularMovieCore', []);
+angular.module('angularMovieCore', ['pascalprecht.translate']);
