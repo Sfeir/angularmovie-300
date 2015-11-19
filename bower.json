@@ -31,5 +31,8 @@
     "fontawesome": "~4.3.0",
     "jquery": "1.8.2",
     "angular-mocks": "~1.4.7"
+  },
+  "resolutions": {
+    "angular": "~1.4"
   }
 }
