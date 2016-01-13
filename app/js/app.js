@@ -15,20 +15,18 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
       templateUrl : 'partials/movie.html',
       controller  : 'movieController',
       resolve     : {
-        movie: function($stateParams, Movie) {
+        movie : function($stateParams, Movie) {
+          var movie = {};
           return Movie.fetchCasting($stateParams.id)
             .then(function(casting) {
+              movie.casting = casting;
               return Movie.fetchImages($stateParams.id)
-                .then(function(images) {
-                  return Movie.fetchInformations($stateParams.id)
-                    .then(function(informations) {
-                      return {
-                        casting: casting,
-                        images: images,
-                        informations: informations
-                      }
-                    });
-                });
+            }).then(function(images) {
+              movie.images = images;
+              return Movie.fetchInformations($stateParams.id)
+            }).then(function(informations) {
+              movie.informations = informations;
+              return movie;
             });
         }
       }
