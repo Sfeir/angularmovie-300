@@ -1,0 +1,11 @@
+web:
+  build: .
+  dockerfile: Dockerfile_dev
+  command: grunt
+  volumes:
+   - ./app:/home/workspace/app
+   - ./server:/home/workspace/server
+   - ./coverage:/home/workspace/coverage
+   - ./Gruntfile.js:/home/workspace/Gruntfile.js
+  ports:
+   - "9000:9000"
