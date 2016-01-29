@@ -5,7 +5,8 @@
   "scripts": {
     "postinstall": "bower install",
     "test": "karma start",
-    "e2e": "protractor protractor.conf.js"
+    "e2e": "protractor protractor.conf.js",
+    "start": "grunt"
   },
   "engines": {
     "node": ">=0.8.x",
