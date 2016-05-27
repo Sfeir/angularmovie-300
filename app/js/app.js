@@ -19,13 +19,13 @@ angular.module('angularMovieApp').config(function($stateProvider, $urlRouterProv
           var movie = {};
           return Movie.fetchCasting($stateParams.id)
             .then(function(casting) {
-              movie.casting = casting;
+              angular.extend(movie, casting.data);
               return Movie.fetchImages($stateParams.id)
             }).then(function(images) {
-              movie.images = images;
+              angular.extend(movie, images.data);
               return Movie.fetchInformations($stateParams.id)
             }).then(function(informations) {
-              movie.informations = informations;
+              angular.extend(movie, informations.data);
               return movie;
             });
         }

@@ -15,16 +15,16 @@
 
    <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="infos">
-         <p><b>Année de sortie : </b>{{informations.releaseYear}}</p>
-         <p><b>Synopsis : </b>{{informations.synopsis}}</p>
-         <p><b>Note : </b>{{informations.rate | stars}}</p>
+         <p><b>Année de sortie : </b>{{movie.releaseYear}}</p>
+         <p><b>Synopsis : </b>{{movie.synopsis}}</p>
+         <p><b>Note : </b>{{movie.rate | stars}}</p>
       </div>
       <div role="tabpanel" class="tab-pane" id="images">
-         <img ng-src="{{images.poster | poster}}" class="span2">
+         <img ng-src="{{movie.poster | poster}}" class="span2">
       </div>
       <div role="tabpanel" class="tab-pane" id="casting">
-         <p><b>Réalisateurs : </b>{{casting.directors}}</p>
-         <p><b>Acteurs : </b>{{casting.actors}}</p>
+         <p><b>Réalisateurs : </b>{{movie.directors}}</p>
+         <p><b>Acteurs : </b>{{movie.actors}}</p>
       </div>
    </div>
 </section>
